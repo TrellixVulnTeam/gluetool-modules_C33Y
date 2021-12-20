@@ -564,7 +564,7 @@ class ArtemisGuest(NetworkedGuest):
         # type: () -> bool
         assert self.environment
         # Cast needs to mypy stop complaints
-        return cast(bool, self.environment.snapshots)
+        return self.environment.snapshots
 
     def setup(self, variables=None, **kwargs):
         # type: (Optional[Dict[str, Any]], **Any) -> Any

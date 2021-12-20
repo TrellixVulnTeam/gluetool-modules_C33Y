@@ -200,6 +200,7 @@ class TestScheduleEntry(LoggerMixin, object):
         who consume the entry to update its state properly.
     :ivar TestScheduleResult result: result of the tests performed by the entry.
     :ivar TestingEnvironment testing_environment: environment required for the entry.
+    :ivar TestingEnvironment provisioned_environment: environment provisioned from provisioning service.
     :ivar NetworkedGuest guest: guest assigned to this entry.
     """
 
@@ -216,6 +217,7 @@ class TestScheduleEntry(LoggerMixin, object):
         self.result = TestScheduleResult.UNDEFINED
 
         self.testing_environment = None  # type: Optional[gluetool_modules_framework.libs.testing_environment.TestingEnvironment]  # noqa
+        self.provisioned_environment = None  # type: Optional[gluetool_modules_framework.libs.testing_environment.TestingEnvironment]  # noqa
         self.guest = None  # type: Optional[gluetool_modules_framework.libs.guest.NetworkedGuest]
 
         # List of exceptions encountered while processing the entry

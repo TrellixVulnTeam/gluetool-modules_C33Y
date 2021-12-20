@@ -23,7 +23,10 @@ import gluetool
 
 # Type annotations
 # pylint: disable=unused-import,wrong-import-order
-from typing import cast, Any, Callable, Dict, List, Optional, Tuple, Union  # noqa
+from typing import TYPE_CHECKING, cast, Any, Callable, Dict, List, Optional, Tuple, Union  # noqa
+
+if TYPE_CHECKING:
+    from gluetool_modules_framework.libs.testing_environment import TestingEnvironment
 
 
 class GuestConnectionError(gluetool.GlueError):
@@ -76,7 +79,7 @@ class Guest(LoggerMixin, object):
         self.attach_logger(GuestLoggingAdapter(logger, name))
 
     def __init__(self, module, name, environment=None):
-        # type: (gluetool.glue.Module, str, Optional[Any]) -> None
+        # type: (gluetool.glue.Module, str, Optional[TestingEnvironment]) -> None
 
         self._module = module
         self.name = name
